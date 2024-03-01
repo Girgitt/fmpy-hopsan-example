@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hopsanmodelfile hmfversion="0.4" hopsanguiversion="2.21.1.20230622.2033" hopsancoreversion="2.21.1.20230622.2033">
+  <requirements>
+    <componentlibrary>
+      <id>59c07d33-554f-49d3-a163-a928823d4380</id>
+      <name>HopsanDefaultComponentLibrary</name>
+    </componentlibrary>
+  </requirements>
+  <system locked="false" cqstype="UndefinedCQSType" typename="Subsystem" subtypename="" disabled="false" name="test__">
+    <simulationtime timestep="0.001" inherit_timestep="true" stop="10" start="0"/>
+    <simulationlogsettings numsamples="2048" starttime="0"/>
+    <parameters/>
+    <aliases/>
+    <hopsangui alwaysvisible="0">
+      <pose y="0" a="0" flipped="false" x="0"/>
+      <nametext position="0" visible="0"/>
+      <animation flowspeed="100" hydraulicmaxpressure="20000000" disabled="false" hydraulicminpressure="0"/>
+      <viewport y="1644.66" zoom="2.01136" x="1468.66"/>
+      <ports hidden="0"/>
+      <names hidden="0"/>
+      <graphics type="user"/>
+      <hopsanobjectappearance version="0.3">
+        <modelobject displayname="test__" typename="Subsystem">
+          <icons>
+            <icon type="defaultmissing" path="subsystemDefault.svg"/>
+          </icons>
+          <ports/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+        </modelobject>
+      </hopsanobjectappearance>
+      <optimization>
+        <settings>
+          <iterations>100</iterations>
+          <nsearchp>8</nsearchp>
+          <refcoeff>1.3</refcoeff>
+          <randfac>0.3</randfac>
+          <forgfac>0</forgfac>
+          <partol>0.0001</partol>
+          <plot>true</plot>
+          <savecsv>false</savecsv>
+          <finaleval>true</finaleval>
+          <logpar>false</logpar>
+        </settings>
+        <parameters/>
+        <objectives/>
+      </optimization>
+      <senstivitityanalysis>
+        <settings>
+          <iterations>100</iterations>
+          <distribution>uniform</distribution>
+        </settings>
+        <parameters/>
+        <plotvariables/>
+      </senstivitityanalysis>
+    </hopsangui>
+    <objects>
+      <component locked="false" cqstype="S" typename="SignalOutputInterface" subtypename="" disabled="false" name="pv_out">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="in#Value"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadPortType" name="in" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1976.277523" a="0" flipped="false" x="1850.491809"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="pv_out" typename="SignalOutputInterface">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="S" typename="SignalPID2" subtypename="" disabled="false" name="SignalPID2">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="e#Value"/>
+          <parameter unit="" type="double" value="0" name="de#Value"/>
+          <parameter unit="" type="double" value="2" name="K"/>
+          <parameter unit="s" type="double" value="30" name="Ti"/>
+          <parameter unit="s" type="double" value="1" name="Tt"/>
+          <parameter unit="s" type="double" value="0.3" name="Td"/>
+          <parameter unit="" type="double" value="-1e+100" name="Umin"/>
+          <parameter unit="" type="double" value="1e+100" name="Umax"/>
+          <parameter unit="" type="double" value="-1e+100" name="Uoutmin"/>
+          <parameter unit="" type="double" value="1e+100" name="Uoutmax"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadPortType" name="e" nodetype="NodeSignal"/>
+          <port porttype="ReadPortType" name="de" nodetype="NodeSignal"/>
+          <port porttype="WritePortType" name="u" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1772" a="0" flipped="false" x="1666.536417"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="SignalPID2" typename="SignalPID2">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="S" typename="SignalUnitDelay" subtypename="" disabled="false" name="Arithmetic_Loop_Delay_Hint_1">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="in#Value"/>
+          <parameter unit="" type="double" value="0" name="out#Value"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadPortType" name="in" nodetype="NodeSignal"/>
+          <port porttype="WritePortType" name="out" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1926.559849" a="0" flipped="false" x="1583.507902"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Arithmetic_Loop_Delay_Hint_1" typename="SignalUnitDelay">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="S" typename="SignalSubtract" subtypename="" disabled="false" name="Subtract">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="in1#Value"/>
+          <parameter unit="" type="double" value="0" name="in2#Value"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadPortType" name="in1" nodetype="NodeSignal"/>
+          <port porttype="ReadPortType" name="in2" nodetype="NodeSignal"/>
+          <port porttype="WritePortType" name="out" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1772" a="0" flipped="false" x="1475.123374"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Subtract" typename="SignalSubtract">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="S" typename="SignalIntegrator2" subtypename="" disabled="false" name="Integrator">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="in#Value"/>
+          <parameter unit="" type="double" value="0" name="out#Value"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadPortType" name="in" nodetype="NodeSignal"/>
+          <port porttype="WritePortType" name="out" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1926.559849" a="0" flipped="false" x="1661.564649"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Integrator" typename="SignalIntegrator2">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="C" typename="SignalNumericalInput" subtypename="" disabled="false" name="Numerical_Input">
+        <parameters>
+          <parameter unit="" type="double" value="10" name="out#Value"/>
+        </parameters>
+        <ports>
+          <port porttype="WritePortType" name="out" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1772" a="0" flipped="false" x="932"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Numerical_Input" typename="SignalNumericalInput">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="S" typename="SignalSum" subtypename="" disabled="false" name="Sum">
+        <parameters/>
+        <ports>
+          <port porttype="ReadMultiportType" name="in" nodetype="NodeSignal"/>
+          <port porttype="WritePortType" name="out" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1772" a="0" flipped="false" x="1330"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Sum" typename="SignalSum">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="S" typename="SignalSink" subtypename="" disabled="false" name="Scope">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="in_bottom#Value"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadMultiportType" name="in" nodetype="NodeSignal"/>
+          <port porttype="ReadPortType" name="in_bottom" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1831.599093" a="0" flipped="false" x="1917.610668"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Scope" typename="SignalSink">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="S" typename="SignalInputInterface" subtypename="" disabled="false" name="sp_in">
+        <parameters/>
+        <ports>
+          <port porttype="WritePortType" name="out" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1871" a="0" flipped="false" x="989"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="sp_in" typename="SignalInputInterface">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="C" typename="SignalDisplay" subtypename="" disabled="false" name="Display_1">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="in#Value"/>
+          <parameter unit="" type="string" value="" name="description"/>
+          <parameter unit="" type="string" value="" name="unit"/>
+          <parameter unit="" type="double" value="1" name="unitscaling"/>
+          <parameter unit="" type="integer" value="8" name="precision"/>
+          <parameter unit="" type="string" value="255,255,255" name="backgroundcolor"/>
+          <parameter unit="" type="string" value="0,50,80" name="textcolor"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadPortType" name="in" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1690.4009" a="0" flipped="false" x="1934.514677"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Display_1" typename="SignalDisplay">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="C" typename="SignalDisplay" subtypename="" disabled="false" name="Display">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="in#Value"/>
+          <parameter unit="" type="string" value="" name="description"/>
+          <parameter unit="" type="string" value="" name="unit"/>
+          <parameter unit="" type="double" value="1" name="unitscaling"/>
+          <parameter unit="" type="integer" value="8" name="precision"/>
+          <parameter unit="" type="string" value="255,255,255" name="backgroundcolor"/>
+          <parameter unit="" type="string" value="0,50,80" name="textcolor"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadPortType" name="in" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1642.174757" a="0" flipped="false" x="1386.5"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Display" typename="SignalDisplay">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component locked="false" cqstype="S" typename="SignalUnitDelay" subtypename="" disabled="false" name="Arithmetic_Loop_Delay_Hint">
+        <parameters>
+          <parameter unit="" type="double" value="0" name="in#Value"/>
+          <parameter unit="" type="double" value="0" name="out#Value"/>
+        </parameters>
+        <ports>
+          <port porttype="ReadPortType" name="in" nodetype="NodeSignal"/>
+          <port porttype="WritePortType" name="out" nodetype="NodeSignal"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose y="1926.559849" a="0" flipped="false" x="1732.163746"/>
+          <nametext position="0" visible="0"/>
+          <animation flowspeed="100" hydraulicmaxpressure="20000000" hydraulicminpressure="0"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject displayname="Arithmetic_Loop_Delay_Hint" typename="SignalUnitDelay">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+    </objects>
+    <connections>
+      <connect endcomponent="Sum" startport="out" startcomponent="Numerical_Input" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1772.00000000000000000000" x="1002.00000000000000000000"/>
+            <coordinate y="1772.00000000000000000000" x="1317.50000000000000000000"/>
+            <coordinate y="1772.00000000000000000000" x="1317.50000000000000000000"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Sum" startport="out" startcomponent="sp_in" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1871.00000000000000000000" x="1001.00000000000000000000"/>
+            <coordinate y="1871.00000000000000000000" x="1317.50000000000000000000"/>
+            <coordinate y="1772.00000000000000000000" x="1317.50000000000000000000"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Integrator" startport="out" startcomponent="Arithmetic_Loop_Delay_Hint_1" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1926.55984928087286789378" x="1601.00790232506892607489"/>
+            <coordinate y="1926.55984928087286789378" x="1624.06464936688439593127"/>
+            <coordinate y="1926.55984928087286789378" x="1624.06464936688439593127"/>
+            <coordinate y="1926.55984928087286789378" x="1644.06464936688439593127"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Arithmetic_Loop_Delay_Hint" startport="out" startcomponent="Integrator" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1926.55984928087286789378" x="1679.06464936688439593127"/>
+            <coordinate y="1926.55984928087286789378" x="1694.66374577924148070451"/>
+            <coordinate y="1926.55984928087286789378" x="1694.66374577924148070451"/>
+            <coordinate y="1926.55984928087286789378" x="1714.66374577924148070451"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Subtract" startport="out" startcomponent="Sum" endport="in1">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1772.00000000000000000000" x="1342.50000000000000000000"/>
+            <coordinate y="1772.00000000000000000000" x="1442.62337363002598067396"/>
+            <coordinate y="1772.00000000000000000000" x="1442.62337363002598067396"/>
+            <coordinate y="1772.00000000000000000000" x="1462.62337363002598067396"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Subtract" startport="out" startcomponent="Arithmetic_Loop_Delay_Hint" endport="in2">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1926.55984928087286789378" x="1749.66374577924148070451"/>
+            <coordinate y="1926.55984928087286789378" x="1475.12337363002598067396"/>
+            <coordinate y="1759.50000000000000000000" x="1475.12337363002598067396"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="SignalPID2" startport="out" startcomponent="Subtract" endport="e">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1772.00000000000000000000" x="1487.62337363002598067396"/>
+            <coordinate y="1772.00000000000000000000" x="1618.53641671986724759336"/>
+            <coordinate y="1772.00000000000000000000" x="1618.53641671986724759336"/>
+            <coordinate y="1772.00000000000000000000" x="1638.53641671986724759336"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Arithmetic_Loop_Delay_Hint_1" startport="u" startcomponent="SignalPID2" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1772.00000000000000000000" x="1694.53641671986724759336"/>
+            <coordinate y="1772.00000000000000000000" x="1546.00790232506892607489"/>
+            <coordinate y="1926.55984928087286789378" x="1546.00790232506892607489"/>
+            <coordinate y="1926.55984928087286789378" x="1566.00790232506892607489"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Scope" startport="out" startcomponent="Arithmetic_Loop_Delay_Hint" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1926.55984928087286789378" x="1749.66374577924148070451"/>
+            <coordinate y="1926.55984928087286789378" x="1897.61066804550364395254"/>
+            <coordinate y="1831.59909283889942344103" x="1897.61066804550364395254"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Display" startport="out" startcomponent="Sum" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1772.00000000000000000000" x="1342.50000000000000000000"/>
+            <coordinate y="1772.00000000000000000000" x="1347.33969112790396138735"/>
+            <coordinate y="1642.17475669025111528754" x="1347.33969112790396138735"/>
+            <coordinate y="1642.17475669025111528754" x="1342.50000000000000000000"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Display_1" startport="out" startcomponent="Arithmetic_Loop_Delay_Hint" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1926.55984928087286789378" x="1749.66374577924148070451"/>
+            <coordinate y="1926.55984928087286789378" x="1870.51467704564515770471"/>
+            <coordinate y="1690.40090032393391084042" x="1870.51467704564515770471"/>
+            <coordinate y="1690.40090032393391084042" x="1890.51467704564515770471"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="pv_out" startport="out" startcomponent="Arithmetic_Loop_Delay_Hint" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate y="1926.55984928087286789378" x="1749.66374577924148070451"/>
+            <coordinate y="1926.55984928087286789378" x="1818.49180878023457808013"/>
+            <coordinate y="1976.27752281070183926204" x="1818.49180878023457808013"/>
+            <coordinate y="1976.27752281070183926204" x="1838.49180878023457808013"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+    </connections>
+  </system>
+</hopsanmodelfile>
