@@ -1,5 +1,5 @@
 # fmpy-hopsan-example
-config example for models exported from Hopsan v21 in FMU format to be executed via python's FMPy module
+config example for models exported from Hopsan v2.21 in FMU format to be executed via python's FMPy module
 
 Repository contains two models: 
 - test_1.fmu was compiled on Mint20 (Ubuntu Focal)
